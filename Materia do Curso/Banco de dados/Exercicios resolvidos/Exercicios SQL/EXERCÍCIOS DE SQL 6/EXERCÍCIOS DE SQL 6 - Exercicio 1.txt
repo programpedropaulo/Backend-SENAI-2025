@@ -1,0 +1,33 @@
+CREATE TABLE Usuarios (
+    id INTEGER PRIMARY KEY,
+    nome TEXT,
+    sobrenome TEXT,
+    email TEXT
+);
+
+INSERT INTO Usuarios (id, nome, sobrenome, email) VALUES
+(1, 'Ana', 'Silva', 'ana.silva@email.com'),
+(2, 'Bruno', 'Souza', 'bruno.souza@email.com'),
+(3, 'Carlos', 'Oliveira', 'carlos.oliveira@email.com'),
+(4, 'daniela', 'Costa', 'daniela.costa@email.com'),
+(5, 'Eduardo', 'Pereira', 'eduardo.p@email.com'),
+(6, 'fernanda', 'Moraes', 'fernanda.m@email.com');
+ 
+
+--EXERCÍCIOS: 
+
+--Encontre os nomes que começam com a letra 'A'.
+--Encontre os nomes que terminam com a letra 'a'.
+--Liste todos os usuários cujo nome começa com a letra 'D'. (Lembre que o SQLite diferencia maiúsculas e minúsculas)
+--Mostre o nome completo de cada usuário (nome + sobrenome).
+--Mostre os 3 primeiros caracteres do nome de cada usuário.
+--Mostre os e-mails que contêm a palavra 'oliveira'.
+--Mostre os nomes que contêm a letra 'n' na segunda posição.
+
+SELECT nome FROM Usuarios WHERE nome LIKE 'A%';
+SELECT nome FROM Usuarios WHERE nome LIKE '%a';
+SELECT nome FROM Usuarios WHERE nome LIKE 'D%';
+SELECT nome||' '||sobrenome AS nome_completo FROM usuarios;
+SELECT SUBSTR (nome,1,4) FROM Usuarios;
+SELECT email FROM Usuarios WHERE email LIKE '%carlos%';
+SELECT nome FROM Usuarios WHERE email LIKE '_N%';
