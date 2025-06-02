@@ -1,0 +1,90 @@
+import sqlite3
+conexao = sqlite3.connect("akuarios.db")
+cursor = conexao.cursor()
+laco_de_repeticao = True
+
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS akuarios(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL,
+    estoque INTEGER NOT NULL,
+    preco_unitario REAL NOT NULL
+                    
+    )
+""")
+print("deseja cadastrar um produto")
+while(laco_de_repeticao == True):
+    nome = input("digite o nome do produto:")
+    estoque = int(input("digite o estoque do produto:"))
+    preco_unitario = float(input("digite o preco do produto:"))
+    cursor.execute("""
+    INSERT INTO akuarios(nome,estoque,preco_unitario) VALUES(?,?,?)
+    """,(nome,estoque,preco_unitario))
+    conexao.commit()
+    print("produto cadastrado com sucesso")
+    print("deseja sair do cadastro do produto")
+    escolha = input("digite sim ou nao")
+    if(escolha == "sim" or escolha == "SIM"):
+        laco_de_repeticao = False
+            
+print("listas de produtos: ")
+cursor.execute("SELECT * FROM akuarios")
+dados = cursor.fetchall()
+for akuario in dados:
+    print(akuario)
+
+print("atualizao de produtos: ")
+id_1 = input("digite o id do produto:")
+print("o que voce deseja mudar: ")
+print("1 para nome")
+print("2 para estoque")
+print("3 para preco_unitario")
+escolha_up = int(input("digite o numero: "))
+if(escolha_up == 1):
+    mud_nome = input("digite o novo nome do produto: ")
+    cursor.execute("UPDATE akuarios SET nome = ?  WHERE id = ?", (mud_nome,id_1))
+    print("nome modificado")
+elif(escolha_up == 2):
+    mud_estoque = int(input("digite o novo valor do estoque: "))
+    cursor.execute("UPDATE akuarios SET estoque = ?  WHERE id = ?", (mud_estoque,id_1))
+    print("estoque modificado")
+elif(escolha_up == 3):
+    mud_preco = float(input("digite o novo preco unitario: "))
+    cursor.execute("UPDATE akuarios SET preco_unitario = ? WHERE id = ?", (mud_preco,id_1))
+    print("preco modificado")
+else:
+    print("valor invalido")
+
+print("deseja deletar uma tabela?: ")
+id_2 = int(input("digite o id do produto que voce deseja apagar: "))
+cursor.execute("DELETE FROM akuarios WHERE id = ? ",(id_2,))
+
+
+print("vamos procura por uma tabela:")
+print("como deseja buscar por id ou nome: ")
+print("1 para id")
+print("2 para nome")
+escolha_min = int(input("digite a escolha: "))
+if(escolha_min == 1):
+    id_3 = int(input("digite o id que deverar ser procurado: "))
+    cursor.execute("SELECT * FROM akuarios WHERE id = ?", (id_3,))
+    for akuario in cursor.fetchall():
+        print(akuario)
+
+elif(escolha_min == 2):
+    nome_bus = input("digite o nome que devera ser procurado: ")
+    cursor.execute("SELECT * FROM akuarios WHERE nome = ?", (nome_bus,))
+    for akuario in cursor.fetchall():
+        print(akuario)
+
+    else:
+        print("valor invalido")
+
+
+print("ver produtos novamentes:")
+cursor.execute("SELECT * FROM akuarios")
+dados = cursor.fetchall()
+for akuario in dados:
+    print(akuario)
+
+conexao.close()
