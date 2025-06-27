@@ -1,0 +1,127 @@
+--Considere que você já tem uma tabela chamada "livros" com os seguintes campos:
+--id, titulo, autor e preco.
+
+--1. Liste todos os livros cujo preço seja maior que 25 reais.
+--2. Liste os livros do autor "George Orwell".
+--3. Liste todos os livros ordenados pelo preço, do mais barato para o mais caro.
+--4. Liste todos os livros ordenados pelo título em ordem alfabética.
+--5. Mostre apenas os 3 livros mais baratos da tabela.
+
+CREATE TABLE Livros (
+	LivrosID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Titulo TEXT,
+  	Autor TEXT,
+  	Preco REAL
+);
+
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES 
+  ('1984', 'George Orwell', 39.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES 
+  ('A Revolucao dos Bichos', 'George Orwell', 29.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES 
+  ('Laranja Mecanica', 'Anthony Burgess', 45.00);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES 
+  ('Fahrenheit 451', 'Ray Bradbury', 42.50);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES 
+  ('Admiravel Mundo Novo', 'Aldous Huxley', 38.00);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES 
+  ('Neuromancer', 'William Gibson', 47.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES 
+  ('Duna', 'Frank Herbert', 59.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Fundacao', 'Isaac Asimov', 49.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Eu, Robo', 'Isaac Asimov', 35.00);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('O Fim da Eternidade', 'Isaac Asimov', 40.00);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('O Hobbit', 'J.R.R. Tolkien', 44.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('O Senhor dos Aneis: A Sociedade do Anel', 'J.R.R. Tolkien', 59.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('O Senhor dos Aneis: As Duas Torres', 'J.R.R. Tolkien', 59.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('O Senhor dos Aneis: O Retorno do Rei', 'J.R.R. Tolkien', 59.99);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Harry Potter e a Pedra Filosofal', 'J.K. Rowling', 39.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Harry Potter e a Camara Secreta', 'J.K. Rowling', 39.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Harry Potter e o Prisioneiro de Azkaban', 'J.K. Rowling', 39.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Harry Potter e o Calice de Fogo', 'J.K. Rowling', 44.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Harry Potter e a Ordem da Fenix', 'J.K. Rowling', 44.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Harry Potter e o Enigma do Principe', 'J.K. Rowling', 44.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Harry Potter e as Reliquias da Morte', 'J.K. Rowling', 44.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('O Codigo Da Vinci', 'Dan Brown', 39.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Anjos e Demonios', 'Dan Brown', 39.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Inferno', 'Dan Brown', 39.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Origem', 'Dan Brown', 39.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('O Simbolo Perdido', 'Dan Brown', 39.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('O Pequeno Principe', 'Antoine de Saint-Exupery', 29.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Dom Quixote', 'Miguel de Cervantes', 49.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Crime e Castigo', 'Fiodor Dostoevski', 44.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('O Idiota', 'Fiodor Dostoievski', 44.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Os Irmaos Karamazov', 'Fiodor Dostoievski', 49.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Orgulho e Preconceito', 'Jane Austen', 34.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Razao e Sensibilidade', 'Jane Austen', 34.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Emma', 'Jane Austen', 34.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Mansfield Park', 'Jane Austen', 34.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Persuasao', 'Jane Austen', 34.90);
+  ('O Morro dos Ventos Uivantes', 'Emily Brontë', 39.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Jane Eyre', 'Charlotte Bronte', 39.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Grandes Esperancas', 'Charles Dickens', 44.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Oliver Twist', 'Charles Dickens', 44.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('David Copperfield', 'Charles Dickens', 44.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('A Tale of Two Cities', 'Charles Dickens', 44.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('O Retrato de Dorian Gray', 'Oscar Wilde', 39.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('O Medico e o Monstro', 'Robert Louis Stevenson', 34.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Dracula', 'Bram Stoker', 39.90);  
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('Frankenstein', 'Mary Shelley', 39.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('A Metamorfose', 'Franz Kafka', R$ 29.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('O Processo', 'Franz Kafka', 34.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('A Colonia Penal', 'Franz Kafka', 29.90);
+  INSERT INTO Livros (Titulo, Autor, Preco) VALUES
+  ('O Castelo', 'Franz Kafka', 34.90);
+  
+  
+  SELECT * FROM Livros;
+
+	SELECT * FROM Livros WHERE Preco > 25;
+    SELECT * FROM Livros WHERE Autor = "George Orwell";
+    SELECT * From Livros ORDER BY Preco ASC LIMIT 3;
+    SELECT * FROM Livros ORDER BY Preco DESC LIMIT 3;
+    SELECT * FROM Livros ORDER BY Titulo ASC LIMIT 3;
+    SELECT * FROM Livros ORDER BY Titulo DESC LIMIT 3;
+    
+  

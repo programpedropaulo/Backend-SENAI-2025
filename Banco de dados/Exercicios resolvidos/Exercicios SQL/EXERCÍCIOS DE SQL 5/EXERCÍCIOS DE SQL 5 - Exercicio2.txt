@@ -1,0 +1,36 @@
+
+CREATE TABLE Candidatos2024 (
+    id INTEGER PRIMARY KEY,
+    nome TEXT
+);
+
+CREATE TABLE Candidatos2025 (
+    id INTEGER PRIMARY KEY,
+    nome TEXT
+);
+
+INSERT INTO Candidatos2024 (id, nome) VALUES
+(1, 'Joao'),
+(2, 'Lucas'),
+(3, 'Marina'),
+(4, 'Paula');
+
+INSERT INTO Candidatos2025 (id, nome) VALUES
+(1, 'Lucas'),
+(2, 'Paula'),
+(3, 'Rafael'),
+(4, 'Tatiane');
+
+--Perguntas:
+
+--1. Liste todos os candidatos únicos que participaram em qualquer um dos anos.
+--2. Liste os candidatos que participaram dos dois anos.
+--3. Liste os candidatos que participaram somente em 2024.
+--4. Liste os candidatos que participaram somente em 2025.
+--5. Liste todos os nomes com repetições (se tiverem participado em ambos).
+
+SELECT nome FROM Candidatos2024 UNION SELECT nome FROM Candidatos2025;
+SELECT nome FROM Candidatos2024 INTERSECT SELECT nome FROM Candidatos2025; 
+SELECT nome FROM Candidatos2024 EXCEPT SELECT nome FROM Candidatos2025;
+SELECT nome FROM Candidatos2025 EXCEPT SELECT nome Candidatos2024;
+SELECT nome From Candidatos2024 UNION ALL SELECT nome FROM Candidatos2025

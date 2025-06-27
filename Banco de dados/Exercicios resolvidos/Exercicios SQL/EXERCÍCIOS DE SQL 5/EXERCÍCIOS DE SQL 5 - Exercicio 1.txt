@@ -1,0 +1,38 @@
+CREATE TABLE ClientesOnline (
+    id INTEGER PRIMARY KEY,
+    nome TEXT
+);
+
+CREATE TABLE ClientesLojaFisica (
+    id INTEGER PRIMARY KEY,
+    nome TEXT
+);
+
+INSERT INTO ClientesOnline (id, nome) VALUES
+(1, 'Ana'),
+(2, 'Bruno'),
+(3, 'Carla'),
+(4, 'Diego');
+
+INSERT INTO ClientesLojaFisica (id, nome) VALUES
+(1, 'Bruno'),
+(2, 'Diego'),
+(3, 'Eduarda'),
+(4, 'Fernanda');
+
+--Perguntas:
+
+--1. Liste todos os nomes de clientes únicos (sem duplicatas) considerando os dois canais.
+--2. Liste todos os nomes de clientes, incluindo duplicatas se houver.
+--3. Liste os nomes dos clientes que compraram tanto online quanto na loja física.
+--4. Liste os nomes dos clientes que compraram apenas online.
+--5. Liste os nomes dos clientes que compraram apenas na loja física.
+
+
+SELECT nome FROM ClientesOnline UNION SELECT nome FROM ClientesLojaFisica;
+SELECT nome FROM ClientesOnline UNION ALL SELECT nome FROM ClienteslojaFisica;
+SELECT nome FROM ClientesOnline INTERSECT SELECT nome FROM ClientesLojaFisica;
+SELECT nome FROM ClientesOnline EXCEPT SELECT nome FROM ClientesLojaFisica;
+SELECT nome FROM ClientesLojaFisica EXECPT SELECT nome FROM ClientesOnline;
+
+

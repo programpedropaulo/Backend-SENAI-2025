@@ -1,0 +1,51 @@
+-- Tabela de autores
+CREATE TABLE autores (
+    id INTEGER PRIMARY KEY,
+    nome TEXT
+);
+
+-- Tabela de livros
+CREATE TABLE livros (
+    id INTEGER PRIMARY KEY,
+    titulo TEXT,
+    autor_id INTEGER
+);
+
+-- Inserção de dados
+INSERT INTO autores (nome) VALUES
+('Machado de Assis'),
+('Clarice Lispector'),
+('Graciliano Ramos'),
+('Monteiro Lobato');
+
+INSERT INTO livros (titulo, autor_id) VALUES
+('Dom Casmurro', 1),
+('MemOrias Postumas de Bras Cubas', 1),
+('A Hora da Estrela', 2),
+('Vidas Secas', 3);
+
+--EXERCÍCIOS:
+--1. Use INNER JOIN para listar os títulos dos livros com o nome do autor correspondente.
+--2. Use LEFT JOIN para listar todos os autores, mesmo que não tenham livros cadastrados.
+--3. Mostre apenas os nomes dos autores que **não** têm livros cadastrados (utilize LEFT JOIN com filtro).
+--4. Liste o total de livros que cada autor possui, exibindo o nome do autor e a quantidade (utilize LEFT JOIN + GROUP BY).
+-- Acesse o site https://sqlfiddle.com/sqlite/online-compiler para começar a programar em sqlite!
+
+SELECT livros.titulo, autores.nome FROM livros
+INNER JOIN autores ON autores.id = livros.autor_id;
+
+SELECT autores.nome,livros.titulo FROM autores
+LEFT JOIN livros ON livros.autor_id = autores.id;
+
+SELECT autores.nome,livros.titulo FROM autores 
+LEFT JOIN livros ON autores.id = livros.autor_id
+WHERE livros.autor_id is NULL ;
+-- O autor em questao nao posssui um livro, entao gostaria de adicionar
+--uma mensagem dizendo: "O autor nao possui um livro. "
+
+SELECT COUNT(*) AS LivrosEscritos,
+autores.nome FROM autores
+LEFT JOIN livros ON livros.autor_id = autores.id
+GROUP BY autores.id;
+
+
