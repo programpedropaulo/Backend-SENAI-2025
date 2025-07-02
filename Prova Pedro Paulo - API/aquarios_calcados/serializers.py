@@ -6,6 +6,11 @@ class ProdutoSerializer(serializers.ModelSerializer):
         model = Produto
         fields = '__all__'
 
+    def validate(self,validated_data):
+       estoque = validated_data['quantidade_em_estoque']
+       if estoque < 1:
+           raise serializers.ValidationError("a quantidade de estoque deve ser maior que 0")
+
 class CompraSerializer(serializers.ModelSerializer):
     class Meta:
         model = Compra
@@ -13,11 +18,14 @@ class CompraSerializer(serializers.ModelSerializer):
         read_only_fields = ['usuario', 'data_de_inscricao']
 
 
-    def validate(self, data):
-        produto = data['produto']
-        if produto.quantidade_em_estoque <= 0:
-            raise serializers.ValidationError("Este produto nâo está mais disponivel.")
-        return data
+    def validate(self,validated_data):
+       estoque = validated_data['quantidade_em_estoque']
+       quantidade = validated_data['quantidade']
+
+       if quantidade <= 0:
+           raise serializers.ValidationError("a quantidade deve ser maior que 0")
+       if estoque < quantidade:
+           raise serializers.ValidationError("o produto veio a acabar")
 
     def create(self, validated_data):
         produto = validated_data['produto']

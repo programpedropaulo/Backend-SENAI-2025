@@ -6,7 +6,7 @@ class Produto(models.Model):
     descricao = models.TextField()
     preco = models.DecimalField(max_digits=8,decimal_places=2)
     quantidade_em_estoque = models.IntegerField()
-    
+     
 
 
     def __str__(self):
